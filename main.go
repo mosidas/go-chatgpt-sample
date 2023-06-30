@@ -19,7 +19,7 @@ func main() {
 
 	// Initialize a new ChatGPT struct
 	// chat := client.NewChatClient(apiKey, model, SystemPrompt())
-	chat := client.NewChatClientAzure(azureApiKey, apiBase, "2023-03-15-preview", model, SystemPrompt())
+	chat := client.NewChatClientAzure(azureApiKey, apiBase, "2023-06-01-preview", model, SystemPrompt())
 
 	// Create a new reader to read from stdin
 	reader := bufio.NewReader(os.Stdin)
@@ -40,7 +40,7 @@ func main() {
 		}
 
 		// Send the line to the OpenAI API
-		answer, err := chat.Chat(line, 1)
+		answer, err := chat.ChatWithData(line, 1)
 		if err != nil {
 			log.Fatal(err)
 		}
