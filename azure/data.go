@@ -1,49 +1,31 @@
 package azure
 
 type Message struct {
-	Role    string `json:"role"`
-	Content string `json:"content"`
-}
-
-type Message2 struct {
-	Index   int    `json:"index"`
-	Role    string `json:"role"`
-	Content string `json:"content"`
+	Index   int    `json:"index,omitempty"`
+	Role    string `json:"role,omitempty"`
+	Content string `json:"content,omitempty"`
 }
 
 type Choice struct {
-	Index        int     `json:"index"`
-	FinishReason string  `json:"finish_reason"`
-	Message      Message `json:"message"`
-}
-
-type Choice2 struct {
-	Index        int        `json:"index"`
-	FinishReason string     `json:"finish_reason"`
-	Messages     []Message2 `json:"message"`
+	Index        int       `json:"index,omitempty"`
+	FinishReason string    `json:"finish_reason,omitempty"`
+	Message      Message   `json:"message,omitempty"`
+	Messages     []Message `json:"messages,omitempty"`
 }
 
 type Usage struct {
-	CompletionTokens int `json:"completion_tokens"`
-	PromptTokens     int `json:"prompt_tokens"`
-	TotalTokens      int `json:"total_tokens"`
+	CompletionTokens int `json:"completion_tokens,omitempty"`
+	PromptTokens     int `json:"prompt_tokens,omitempty"`
+	TotalTokens      int `json:"total_tokens,omitempty"`
 }
 
 type ChatResponse struct {
-	ID      string   `json:"id"`
-	Object  string   `json:"object"`
-	Created int      `json:"created"`
-	Model   string   `json:"model"`
-	Choices []Choice `json:"choices"`
-	Usage   Usage    `json:"usage"`
-}
-
-type ChatResponse2 struct {
-	ID      string    `json:"id"`
-	Object  string    `json:"object"`
-	Created int       `json:"created"`
-	Model   string    `json:"model"`
-	Choices []Choice2 `json:"choices"`
+	ID      string   `json:"id,omitempty"`
+	Object  string   `json:"object,omitempty"`
+	Created int      `json:"created,omitempty"`
+	Model   string   `json:"model,omitempty"`
+	Choices []Choice `json:"choices,omitempty"`
+	Usage   Usage    `json:"usage,omitempty"`
 }
 
 type ChatRequest struct {

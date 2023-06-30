@@ -142,7 +142,7 @@ func (c *ChatClientAzure) ChatWithData(message string, temperature float64) (str
 	fmt.Println(string(body))
 
 	// Parse the response body
-	var response ChatResponse2
+	var response ChatResponse
 	err = json.Unmarshal(body, &response)
 	if err != nil {
 		return "", err
